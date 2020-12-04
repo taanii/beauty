@@ -74,19 +74,23 @@
             <h1 style="color: rgb(180, 180, 180);">Feedback Form</h1>
         </div>
         <div class="col-6 col-lg-6 offset-3 offset-lg-0">
-          <form method="POST" action="connection.php">
+          <form method="POST" autocomplete="off" action="connection.php" onsubmit="return validation()">
              <div class="form-group"><label style="color: rgb(180, 180, 180);">Name</label>
-                 <input type="text" name="Name" class="form-control">
+                 <input id="user" type="text" name="Name" class="form-control">
+                 <span id="userr"></span>
               </div>
              <div class="form-group"><label style="color: rgb(180, 180, 180);">Email</label>
-                  <input class="form-control" type="email" name="Email">
+                  <input id="email" class="form-control" type="text" name="Email">
+                  <span id="emaill"></span>
             </div>
             <div class="form-group"><label style="color: rgb(180, 180, 180);">Mobile</label>
-              <input class="form-control" type="mobile" name="Mobile">
+              <input id="mobile" class="form-control" name="Mobile">
+              <span id="mobilee"></span>
         </div>
            <div class="form-group">
-                 <label style="color: rgb(180, 180, 180);">Message</label>
-                 <textarea class="form-control" name="Message"></textarea>  
+                 <label style="color: rgb(182, 142, 142);">Message</label>
+                 <textarea id="msg" class="form-control" name="Message"></textarea>
+                 <span id="msgg"></span> 
            </div>
                  <button type="submit" class="btn" btn="warning">Submit</button>
           </form>
@@ -127,5 +131,80 @@
       </section>
     
             
+
+
+
+    
+    
+      <script>
+      function validation()
+      {
+      var user = document.getElementById('user').value;
+      var email = document.getElementById('email').value;
+      var mobile = document.getElementById('mobile').value;
+      var msg = document.getElementById('msg').value;
+      //name
+      if (user== "")
+      {
+      document.getElementById('userr').innerHTML="Name can't be empty";
+      return false;
+      }
+      if (user.length<5)
+      {
+      document.getElementById('userr').innerHTML="Name should be more than 5 characters";
+      return false;
+      }
+      else{
+      document.getElementById('userr').innerHTML="";
+      }
+      //email
+      if (email == "")
+      {
+      document.getElementById('emaill').innerHTML="Email can't be empty";
+      return false;
+      }
+      if (email.search(/[@\.]/)==-1)
+      {
+      document.getElementById('emaill').innerHTML="Email should contain @ and .";
+      return false;
+      }
+      if (email.search(/[#\,\*]/) != -1)
+      {
+      document.getElementById('emaill').innerHTML="Email can't contain # , * ";
+      return false; }
+      else{
+      document.getElementById('emaill').innerHTML="";
+      }
+      //mobile
+      if (mobile == "")
+      {
+      document.getElementById('mobilee').innerHTML="Mobile no. can't be empty";
+      return false;
+      }
+      if (mobile.length<10)
+      {
+      document.getElementById('mobilee').innerHTML="Mobile no. can't be less than 10 digits";
+      return false;
+      }
+      if (mobile.length>10)
+      {
+      document.getElementById('mobilee').innerHTML="Mobile no. can't be more than 10 digits";
+      return false;
+      }
+      else{
+      alert("Submitted successfully...!");
+      }
+      }
+      //message
+      if (msg== "")
+      {
+      document.getElementById('msgg').innerHTML="Name can't be empty";
+      return false;
+      }
+      else{
+      document.getElementById('userr').innerHTML="";
+      }
+      </script>
+     
     </body>
     </html>
