@@ -12,12 +12,89 @@
       <script src="js/jquery.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="js/all.min.js"></script>
+      <script>
+        function validation()
+        {
+        var user = document.getElementById('user').value;
+        var email = document.getElementById('email').value;
+        var mobile = document.getElementById('mobile').value;
+        var msg = document.getElementById('msg').value;
+        //name
+        if (user== "")
+        {
+        document.getElementById('userr').innerHTML="Name can't be empty";
+        return false;
+        }
+        if (user.length<3)
+        {
+        document.getElementById('userr').innerHTML="Name should contail more than 2 characters";
+        return false;
+        }
+        else{
+        document.getElementById('userr').innerHTML="";
+        }
+        //email
+        if (email == "")
+        {
+        document.getElementById('emaill').innerHTML="Email can't be empty";
+        return false;
+        }
+        //if (email.search(/[@\.]/)==-1)
+        //{
+        //document.getElementById('emaill').innerHTML="Email should contain @ and .";
+        //return false;
+        //}
+        //if (email.search(/[#\,\*]/) != -1)
+        //{
+        //document.getElementById('emaill').innerHTML="Email can't contain # , * ";
+        //return false; 
+        //}
+        else{
+        document.getElementById('emaill').innerHTML="";
+        }
+        //mobile
+        if (mobile == "")
+        {
+        document.getElementById('mobilee').innerHTML="Mobile no. can't be empty";
+        return false;
+        }
+        if (mobile.length<10)
+        {
+        document.getElementById('mobilee').innerHTML="Mobile no. can't be less than 10 digits";
+        return false;
+        }
+        if (mobile.length>10)
+        {
+        document.getElementById('mobilee').innerHTML="Mobile no. can't be more than 10 digits";
+        return false;
+        }
+        if (mobile.search(/[a-z\A-Z\@\!\$\%\^\&\(\)\_\-\+\=\<\>\?\.]/)!=-1)
+        {
+        document.getElementById('mobilee').innerHTML="Mobile number should contail only integers";
+        return false;
+      }
+     
+        else{
+        document.getElementById('mobilee').innerHTML="";
+        }
+        
+        //message
+        if (msg== "")
+        {
+        document.getElementById('msgg').innerHTML="Name can't be empty";
+        return false;
+        }
+        else{
+          alert("Submitted successfully...!");
+        }
+        }
+        </script>
     </head>
     <header id="header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
           <a class="navbar-brand" href="#">
             <img class="logo" src="images\logo.png" style="width:2cm;"></a>
-            <h2 style="color: antiquewhite;">Beauty and Fashion</h2>
+            <h2 style="color: rgb(255, 255, 255);">Beauty and Fashion</h2>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -66,29 +143,29 @@
     </section>
 
 
-<section id="contact" style="background-color: rgb(53, 53, 53); padding-bottom: 40px;">
+<section id="contact" style="background-color: rgb(180, 180, 180); padding-bottom: 40px;">
   <div class="container" style="padding-top: 40px; padding-bottom: 40px;">
     <div>
       <div clas="row">
         <div class="col-6 col-lg-6 offset-3 offset-lg-0">
-            <h1 style="color: rgb(180, 180, 180);">Feedback Form</h1>
+            <h1 style="color: rgb(46, 46, 46);">Feedback Form</h1>
         </div>
         <div class="col-6 col-lg-6 offset-3 offset-lg-0">
           <form method="POST" autocomplete="off" action="connection.php" onsubmit="return validation()">
-             <div class="form-group"><label style="color: rgb(180, 180, 180);">Name</label>
+             <div class="form-group"><label style="color: rgb(46, 46, 46);">Name</label>
                  <input id="user" type="text" name="Name" class="form-control">
                  <span id="userr"></span>
               </div>
-             <div class="form-group"><label style="color: rgb(180, 180, 180);">Email</label>
-                  <input id="email" class="form-control" type="text" name="Email">
+             <div class="form-group"><label style="color: rgb(46, 46, 46);">Email</label>
+                  <input id="email" class="form-control" type="email" name="Email">
                   <span id="emaill"></span>
             </div>
-            <div class="form-group"><label style="color: rgb(180, 180, 180);">Mobile</label>
+            <div class="form-group"><label style="color: rgb(46, 46, 46);">Mobile</label>
               <input id="mobile" class="form-control" name="Mobile">
               <span id="mobilee"></span>
         </div>
            <div class="form-group">
-                 <label style="color: rgb(182, 142, 142);">Message</label>
+                 <label style="color: rgb(46, 46, 46);">Message</label>
                  <textarea id="msg" class="form-control" name="Message"></textarea>
                  <span id="msgg"></span> 
            </div>
@@ -126,85 +203,9 @@
           </div>
         </div>
         <hr>
-        <p class="copyright">© Copyright 2019</p><strong>All Rights Reserved</strong>
+        <p class="copyright">© Copyright 2020</p><strong>All Rights Reserved</strong>
         </div>
       </section>
-    
-            
-
-
-
-    
-    
-      <script>
-      function validation()
-      {
-      var user = document.getElementById('user').value;
-      var email = document.getElementById('email').value;
-      var mobile = document.getElementById('mobile').value;
-      var msg = document.getElementById('msg').value;
-      //name
-      if (user== "")
-      {
-      document.getElementById('userr').innerHTML="Name can't be empty";
-      return false;
-      }
-      if (user.length<5)
-      {
-      document.getElementById('userr').innerHTML="Name should be more than 5 characters";
-      return false;
-      }
-      else{
-      document.getElementById('userr').innerHTML="";
-      }
-      //email
-      if (email == "")
-      {
-      document.getElementById('emaill').innerHTML="Email can't be empty";
-      return false;
-      }
-      if (email.search(/[@\.]/)==-1)
-      {
-      document.getElementById('emaill').innerHTML="Email should contain @ and .";
-      return false;
-      }
-      if (email.search(/[#\,\*]/) != -1)
-      {
-      document.getElementById('emaill').innerHTML="Email can't contain # , * ";
-      return false; }
-      else{
-      document.getElementById('emaill').innerHTML="";
-      }
-      //mobile
-      if (mobile == "")
-      {
-      document.getElementById('mobilee').innerHTML="Mobile no. can't be empty";
-      return false;
-      }
-      if (mobile.length<10)
-      {
-      document.getElementById('mobilee').innerHTML="Mobile no. can't be less than 10 digits";
-      return false;
-      }
-      if (mobile.length>10)
-      {
-      document.getElementById('mobilee').innerHTML="Mobile no. can't be more than 10 digits";
-      return false;
-      }
-      else{
-      alert("Submitted successfully...!");
-      }
-      }
-      //message
-      if (msg== "")
-      {
-      document.getElementById('msgg').innerHTML="Name can't be empty";
-      return false;
-      }
-      else{
-      document.getElementById('userr').innerHTML="";
-      }
-      </script>
      
     </body>
     </html>
